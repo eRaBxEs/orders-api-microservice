@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
+	"os/signal"
 
 	"github.com/erabxes/orders-api/application"
 )
@@ -10,8 +12,13 @@ import (
 func main() {
 	app := application.New()
 
-	err := app.Start(context.TODO())
+	// use context.background() to derive a root level context
+	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
+	defer cancel()
+
+	err := app.Start(ctx)
 	if err != nil {
 		fmt.Println("failed to start app:", err)
 	}
+
 }
