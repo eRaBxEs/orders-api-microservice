@@ -1,0 +1,70 @@
+### CREATE
+### For Bash use
+curl -X POST -d '{"customer_id":"${uuidgen}","line_items":[{"item_id":"${uuidgen}","quantity":5,"price":199}]}' localhost:3000/orders
+###
+POST http://localhost:3000/orders HTTP/1.1
+content-type: application/json
+
+{
+  "customer_id": "<generated-uuid>",
+  "line_items": [
+    {
+      "item_id": "<generated-uuid>",
+      "quantity": 5,
+      "price": 199
+    }
+  ]
+}
+
+
+
+### READ
+### For BAsh Use
+curl -sS localhost:3000/orders | jq
+###
+GET http://localhost:3000/orders HTTP/1.1
+
+###
+curl -sS localhost:3000/orders?cursor=113 | jq
+###
+GET http://localhost:3000/orders?cursor=113 HTTP/1.1
+
+###
+curl -sS localhost:3000/orders/18113992929638257603 | jq
+###
+GET http://localhost:3000/orders/18113992929638257603 HTTP/1.1
+###
+###
+GET http://localhost:3000/orders/11565849822629266942 HTTP/1.1
+###
+GET http://localhost:3000/orders/3891687608237305015 HTTP/1.1
+###
+GET http://localhost:3000/orders/3891687608237305015 HTTP/1.1
+###
+curl -sS localhost:3000/orders/0 -v
+###
+GET http://localhost:3000/orders/0 HTTP/1.1
+###
+
+### UPDATE
+### For Bash use
+curl -X PUT -d '{"status":"shipped"}' -sS localhost:3000/orders/3891687608237305015
+###
+PUT http://localhost:3000/orders/14897631629086246134 HTTP/1.1
+content-type: application/json
+
+{
+ "status": "shipped"
+}
+### GET
+GET http://localhost:3000/orders/14897631629086246134 HTTP/1.1
+###
+
+### DELETE
+### For Bash
+curl -X DELETE http://localhost:3000/orders/9751963293553282180
+###
+DELETE http://localhost:3000/orders/5717308737848091178 HTTP/1.1
+###
+GET http://localhost:3000/orders/9751963293553282180 HTTP/1.1
+###
