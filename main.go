@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	app := application.New()
+	app := application.New(application.LoadConfig())
 
 	// use context.background() to derive a root level context
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
