@@ -68,3 +68,9 @@ DELETE http://localhost:3000/orders/5717308737848091178 HTTP/1.1
 ###
 GET http://localhost:3000/orders/9751963293553282180 HTTP/1.1
 ###
+### Check when the localhost port is changed via the command below
+
+###
+GET http://localhost:8080/orders?cursor=113 HTTP/1.1
+
+###
