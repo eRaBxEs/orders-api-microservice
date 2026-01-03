@@ -1,0 +1,5 @@
+1. Add a GoDotEnv file to automatically load configuration from a .env file
+2. Move the repo handler and model packages into a single order package, we have an order package already defined, group them by the domain
+3. Replace the references to the repo handler with a Repo interface which will allow one to swap these out to another data store in the future
+4. Swapping to another data store in the future. create a new repository for postgres and storing the new order there.
+5. Add automated end to end testing to this which will be very challenging but it will help you with the developer experience.
